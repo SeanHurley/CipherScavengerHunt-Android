@@ -1,0 +1,12 @@
+!SESSION 2012-07-23 21:55:17.791 -----------------------------------------------
+eclipse.buildId=I20120608-1400
+java.version=1.6.0_24
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2012-07-23 22:11:02.301
+!MESSAGE Failed to load properties file for project 'Cipher-Scavenger-Hunt-Android2'
+
+!ENTRY org.eclipse.ui 2 2 2012-07-23 22:11:11.225
+!MESSAGE Invalid property category path: ValidationPropertiesPage (bundle: org.eclipse.wst.xml.ui, propertyPage: org.eclipse.wst.xml.ui.propertyPage.project.validation)

@@ -12,6 +12,7 @@ public final class R {
     }
     public static final class color {
         public static final int darkorange=0x7f040001;
+        public static final int gray_transparent=0x7f040002;
         public static final int lightorange=0x7f040000;
     }
     public static final class drawable {
@@ -23,10 +24,12 @@ public final class R {
     }
     public static final class id {
         public static final int btn_scan=0x7f080000;
-        public static final int menu_settings=0x7f080001;
+        public static final int menu_settings=0x7f080002;
+        public static final int spinner=0x7f080001;
     }
     public static final class layout {
         public static final int activity_home=0x7f030000;
+        public static final int activity_scanning=0x7f030001;
     }
     public static final class menu {
         public static final int activity_main=0x7f070000;

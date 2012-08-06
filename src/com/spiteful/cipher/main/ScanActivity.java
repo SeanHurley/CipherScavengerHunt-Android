@@ -6,19 +6,28 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Toast;
 
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
+import com.spiteful.cipher.android.R;
+import com.spiteful.cipher.network.VerifyWebService;
+import com.spiteful.cipher.network.WebActionCallback;
 import com.spiteful.cipher.util.Constants;
 import com.spiteful.cipher.util.Decoder;
 
-public class ScanActivity extends Activity {
+public class ScanActivity extends Activity implements WebActionCallback {
 	private static final String tag = ScanActivity.class.toString();
+	private View spinner;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
+		setContentView(R.layout.activity_scanning);
+		
+		this.spinner = this.findViewById(R.id.spinner);
+		
 		IntentIntegrator integrator = new IntentIntegrator(this);
 		integrator.initiateScan();
 	}
@@ -58,10 +67,33 @@ public class ScanActivity extends Activity {
 			break;
 		}
 
-		contactServer(null, decoded);
+		contactServer(null, null);
 	}
 
 	private void contactServer(String id, String decoded) {
+		startSpinner();
+		VerifyWebService service = new VerifyWebService(this);
+		service.execute(new JSONObject[] {});
+	}
 
+	@Override
+	public void onCompleted(JSONObject json) {
+		stopSpinner();
+		
+		boolean success = (Boolean) json.get(Constants.SUCCESS_KEY);
+		if(success) {
+			Toast.makeText(this, "Congrats bro!", Toast.LENGTH_LONG).show();
+		} else {
+			Toast.makeText(this, "Dude, you suck", Toast.LENGTH_LONG).show();
+		}
+	}
+	
+	
+	private void startSpinner() {
+		this.spinner.setVisibility(View.VISIBLE);
+	}
+	
+	private void stopSpinner() {
+		this.spinner.setVisibility(View.GONE);
 	}
 }

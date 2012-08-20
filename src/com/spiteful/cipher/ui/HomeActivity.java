@@ -1,4 +1,4 @@
-package com.spiteful.cipher.main;
+package com.spiteful.cipher.ui;
 
 import android.app.Activity;
 import android.content.Intent;

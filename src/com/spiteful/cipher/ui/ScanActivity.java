@@ -1,4 +1,4 @@
-package com.spiteful.cipher.main;
+package com.spiteful.cipher.ui;
 
 import net.minidev.json.JSONObject;
 import net.minidev.json.JSONValue;
@@ -11,11 +11,11 @@ import android.widget.Toast;
 
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
+import com.spiteful.cipher.Constants;
 import com.spiteful.cipher.android.R;
 import com.spiteful.cipher.model.Message;
-import com.spiteful.cipher.network.VerifyWebService;
-import com.spiteful.cipher.network.WebActionCallback;
-import com.spiteful.cipher.util.Constants;
+import com.spiteful.cipher.service.VerifyService;
+import com.spiteful.cipher.service.WebActionCallback;
 import com.spiteful.cipher.util.Decoder;
 
 public class ScanActivity extends Activity implements WebActionCallback {
@@ -78,8 +78,8 @@ public class ScanActivity extends Activity implements WebActionCallback {
 
 	private void contactServer(Message message) {
 		startSpinner();
-		VerifyWebService service = new VerifyWebService(this);
-		service.execute(new Message[] {message});
+		VerifyService service = new VerifyService(this, message);
+		service.performAction();
 	}
 
 	@Override

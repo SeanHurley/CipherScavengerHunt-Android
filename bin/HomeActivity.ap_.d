@@ -1,0 +1,27 @@
+/home/sean/workspace/cipher-scavenger-hunt-android/bin/HomeActivity.ap_ \
+ : /home/sean/workspace/cipher-scavenger-hunt-android/res/drawable-hdpi/ic_launcher.png \
+/home/sean/workspace/cipher-scavenger-hunt-android/res/drawable-hdpi/ic_action_search.png \
+/home/sean/workspace/cipher-scavenger-hunt-android/res/values-v11/styles.xml \
+/home/sean/workspace/cipher-scavenger-hunt-android/res/drawable/orange_button_pressed.xml \
+/home/sean/workspace/cipher-scavenger-hunt-android/res/drawable/orange_button.xml \
+/home/sean/workspace/cipher-scavenger-hunt-android/res/drawable/orange_button_default.xml \
+/home/sean/workspace/cipher-scavenger-hunt-android/res/values/styles.xml \
+/home/sean/workspace/cipher-scavenger-hunt-android/res/values/colors.xml \
+/home/sean/workspace/cipher-scavenger-hunt-android/res/values/strings.xml \
+/home/sean/workspace/cipher-scavenger-hunt-android/res/values-v14/styles.xml \
+/home/sean/workspace/cipher-scavenger-hunt-android/res/layout/activity_home.xml \
+/home/sean/workspace/cipher-scavenger-hunt-android/res/layout/activity_scanning.xml \
+/home/sean/workspace/cipher-scavenger-hunt-android/res/menu/activity_main.xml \
+/home/sean/workspace/cipher-scavenger-hunt-android/res/drawable-ldpi/ic_launcher.png \
+/home/sean/workspace/cipher-scavenger-hunt-android/res/drawable-xhdpi/ic_launcher.png \
+/home/sean/workspace/cipher-scavenger-hunt-android/res/drawable-xhdpi/ic_action_search.png \
+/home/sean/workspace/cipher-scavenger-hunt-android/res/drawable-mdpi/ic_launcher.png \
+/home/sean/workspace/cipher-scavenger-hunt-android/res/drawable-mdpi/ic_action_search.png \
+/home/sean/workspace/cipher-scavenger-hunt-android/bin/res/drawable-hdpi/ic_launcher.png \
+/home/sean/workspace/cipher-scavenger-hunt-android/bin/res/drawable-hdpi/ic_action_search.png \
+/home/sean/workspace/cipher-scavenger-hunt-android/bin/res/drawable-ldpi/ic_launcher.png \
+/home/sean/workspace/cipher-scavenger-hunt-android/bin/res/drawable-xhdpi/ic_launcher.png \
+/home/sean/workspace/cipher-scavenger-hunt-android/bin/res/drawable-xhdpi/ic_action_search.png \
+/home/sean/workspace/cipher-scavenger-hunt-android/bin/res/drawable-mdpi/ic_launcher.png \
+/home/sean/workspace/cipher-scavenger-hunt-android/bin/res/drawable-mdpi/ic_action_search.png \
+/home/sean/workspace/cipher-scavenger-hunt-android/bin/AndroidManifest.xml \

@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 import com.spiteful.cipher.android.R;
+import com.spiteful.cipher.model.Message;
 import com.spiteful.cipher.network.VerifyWebService;
 import com.spiteful.cipher.network.WebActionCallback;
 import com.spiteful.cipher.util.Constants;
@@ -48,39 +49,44 @@ public class ScanActivity extends Activity implements WebActionCallback {
 	}
 
 	private void handleMessage(JSONObject json) {
-		int level = Integer.parseInt((String) json.get(Constants.LEVEL_KEY));
-		String data = (String) json.get(Constants.DATA_KEY);
+		Message message = new Message();
+		int level = (Integer)json.get(Constants.LEVEL_KEY);
+		int id = (Integer) json.get(Constants.ID_KEY);
+		String data = (String) json.get(Constants.ENCODED_KEY);
 		String decoded = "";
+		message.setId(id);
+		message.setLevel(level);
+		message.setEncoded(data);
 
-		switch (level) {
+		switch (message.getLevel()) {
 		case 1:
-			decoded = Decoder.decodeLevel1(data);
+			decoded = Decoder.decodeLevel1(message.getEncoded());
 			break;
 		case 2:
-			decoded = Decoder.decodeLevel2(data);
+			decoded = Decoder.decodeLevel2(message.getEncoded());
 			break;
 		case 3:
-			decoded = Decoder.decodeLevel3(data);
+			decoded = Decoder.decodeLevel3(message.getEncoded());
 			break;
 
 		default:
 			break;
 		}
-
-		contactServer(null, null);
+		message.setDecoded(decoded);
+		contactServer(message);
 	}
 
-	private void contactServer(String id, String decoded) {
+	private void contactServer(Message message) {
 		startSpinner();
 		VerifyWebService service = new VerifyWebService(this);
-		service.execute(new JSONObject[] {});
+		service.execute(new Message[] {message});
 	}
 
 	@Override
 	public void onCompleted(JSONObject json) {
 		stopSpinner();
 		
-		boolean success = (Boolean) json.get(Constants.SUCCESS_KEY);
+		boolean success = (Boolean) json.get(Constants.RESULT_KEY);
 		if(success) {
 			Toast.makeText(this, "Congrats bro!", Toast.LENGTH_LONG).show();
 		} else {

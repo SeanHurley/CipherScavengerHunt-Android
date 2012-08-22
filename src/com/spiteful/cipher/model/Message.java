@@ -4,6 +4,7 @@ public class Message {
 	private int id;
 	private String encoded;
 	private String decoded; 
+	private String parity;
 	private int level;
 	
 	public int getId() {
@@ -29,5 +30,11 @@ public class Message {
 	}
 	public void setLevel(int level) {
 		this.level = level;
+	}
+	public String getParity() {
+		return parity;
+	}
+	public void setParity(String parity) {
+		this.parity = parity;
 	}
 }

@@ -2,6 +2,7 @@ package com.spiteful.cipher;
 
 public class Constants {
 	public static final String LEVEL_KEY = "level";
+	public static final String PARITY_KEY = "parity";
 	public static final String ID_KEY = "id";
 	public static final String DECODED_KEY = "decoded";
 	public static final String ENCODED_KEY = "encoded";

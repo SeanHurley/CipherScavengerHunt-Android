@@ -90,7 +90,12 @@ public abstract class BaseWebService {
 					throws ClientProtocolException, IOException {
 				String responseBody = EntityUtils
 						.toString(response.getEntity());
-				return (JSONObject) JSONValue.parse(responseBody);
+				try {
+					return (JSONObject) JSONValue.parse(responseBody);
+				} catch(Exception e) {
+					e.printStackTrace();
+					return null;
+				}
 			}
 		};
 	}

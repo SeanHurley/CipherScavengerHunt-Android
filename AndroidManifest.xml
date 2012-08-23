@@ -27,6 +27,14 @@
             android:name="com.spiteful.cipher.ui.ScanActivity"
             android:screenOrientation="portrait" >
         </activity>
+        <activity
+            android:name="com.spiteful.cipher.ui.CipherPreferencesActivity"
+            android:screenOrientation="portrait" >
+        </activity>        
+        <activity
+            android:name="com.spiteful.cipher.ui.ViewMessageActivity"
+            android:screenOrientation="portrait" >
+        </activity>
     </application>
 
 </manifest>

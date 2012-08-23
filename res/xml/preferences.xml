@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory 
+        android:title="First Category"
+        android:key="first_category">
+        
+        <EditTextPreference 
+            android:key="team_id"
+            android:summary="A number"
+            android:title="The Teams ID" 
+            android:inputType="number"
+            android:defaultValue=""
+            android:dialogMessage="Team ID"    
+        />
+        
+        <EditTextPreference 
+            android:key="team_pin"
+            android:title="The Teams Pin"
+            android:summary="4 digit number"
+            android:defaultValue="0000" 
+            android:inputType="number"
+        />    
+            
+    </PreferenceCategory>
+    
+</PreferenceScreen>

@@ -9,6 +9,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/orange_button"
-        android:text="@string/scan" />
+        android:text="@string/scan" />    
+
+    <Button
+        android:id="@+id/btn_view"
+        android:layout_below="@+id/btn_scan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/orange_button"
+        android:text="@string/view_message" />
+
+    <Button
+        android:id="@+id/btn_prefs"
+        android:layout_below="@+id/btn_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/orange_button"
+        android:text="@string/prefs" />
 
 </RelativeLayout>

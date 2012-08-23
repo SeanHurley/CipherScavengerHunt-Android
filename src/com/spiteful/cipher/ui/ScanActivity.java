@@ -5,6 +5,8 @@ import net.minidev.json.JSONValue;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -109,7 +111,12 @@ public class ScanActivity extends Activity implements WebActionCallback {
 
 	private void contactServer(Message message) {
 		startSpinner();
-		VerifyService service = new VerifyService(this, message);
+
+		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+		int id = Integer.parseInt(prefs.getString(Constants.TEAMID_PREF, "0"));
+		int pin = Integer.parseInt(prefs.getString(Constants.TEAMPIN_PREF, "0"));
+		
+		VerifyService service = new VerifyService(this, message, id, pin);
 		service.performAction();
 	}
 

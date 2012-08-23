@@ -10,9 +10,11 @@ import android.widget.Button;
 
 import com.spiteful.cipher.android.R;
 
-public class HomeActivity extends Activity implements OnClickListener {
+public class HomeActivity extends Activity {
 	private static final String tag = HomeActivity.class.toString();
 	private Button scanButton;
+	private Button viewMessageButton;
+	private Button prefsButton;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -20,7 +22,31 @@ public class HomeActivity extends Activity implements OnClickListener {
 		setContentView(R.layout.activity_home);
 
 		this.scanButton = (Button) this.findViewById(R.id.btn_scan);
-		this.scanButton.setOnClickListener(this);
+		this.scanButton.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(HomeActivity.this, ScanActivity.class);
+				startActivity(intent);
+			}
+		});
+
+		this.prefsButton = (Button) this.findViewById(R.id.btn_prefs);
+		this.prefsButton.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(HomeActivity.this, CipherPreferencesActivity.class);
+				startActivity(intent);
+			}
+		});
+
+		this.viewMessageButton = (Button) this.findViewById(R.id.btn_view);
+		this.viewMessageButton.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(HomeActivity.this, ViewMessageActivity.class);
+				startActivity(intent);
+			}
+		});
 	}
 
 	@Override
@@ -28,13 +54,4 @@ public class HomeActivity extends Activity implements OnClickListener {
 		getMenuInflater().inflate(R.menu.activity_main, menu);
 		return true;
 	}
-
-	@Override
-	public void onClick(View v) {
-		if (v == scanButton) {
-			Intent intent = new Intent(this, ScanActivity.class);
-			startActivity(intent);
-		}
-	}
-
 }

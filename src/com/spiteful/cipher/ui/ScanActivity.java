@@ -64,7 +64,7 @@ public class ScanActivity extends Activity implements WebActionCallback {
 	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent intent) {
 		IntentResult scanResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
-		if (scanResult != null) {
+		if (scanResult != null && scanResult.getContents() != null) {
 			Log.d(tag, scanResult.getContents());
 
 			Object object = JSONValue.parse(scanResult.getContents());
@@ -73,6 +73,8 @@ public class ScanActivity extends Activity implements WebActionCallback {
 			} else {
 				// TODO Tell the user
 			}
+		} else {
+			finish();
 		}
 	}
 
@@ -115,7 +117,7 @@ public class ScanActivity extends Activity implements WebActionCallback {
 		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
 		int id = Integer.parseInt(prefs.getString(Constants.TEAMID_PREF, "0"));
 		int pin = Integer.parseInt(prefs.getString(Constants.TEAMPIN_PREF, "0"));
-		
+
 		VerifyService service = new VerifyService(this, message, id, pin);
 		service.performAction();
 	}

@@ -26,12 +26,15 @@ public class ScanActivity extends Activity implements WebActionCallback {
 	private static final String tag = ScanActivity.class.toString();
 	private Message message = new Message();
 	private boolean success;
+	private String reason;
 	private ProgressDialog progressBar;
 	private TextView levelText;
 	private TextView encodedText;
+	private TextView labelParity;
 	private TextView parityText;
 	private TextView decodedText;
 	private TextView successText;
+	private TextView reasonText;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -48,17 +51,32 @@ public class ScanActivity extends Activity implements WebActionCallback {
 	private void getUiElements() {
 		this.levelText = (TextView) this.findViewById(R.id.tv_level);
 		this.encodedText = (TextView) this.findViewById(R.id.tv_encoded);
+		this.labelParity = (TextView) this.findViewById(R.id.label_parity);
 		this.parityText = (TextView) this.findViewById(R.id.tv_parity);
 		this.decodedText = (TextView) this.findViewById(R.id.tv_decoded);
 		this.successText = (TextView) this.findViewById(R.id.tv_success);
+		this.reasonText = (TextView) this.findViewById(R.id.tv_reason);
 	}
 
 	private void setupUi() {
 		this.levelText.setText(message.getLevel() + "");
 		this.encodedText.setText(message.getEncoded());
 		this.decodedText.setText(message.getDecoded());
-		this.parityText.setText(message.getParity());
+		if(message.getLevel() == 3) {
+			this.parityText.setText(message.getParity());
+			this.labelParity.setVisibility(View.VISIBLE);
+			this.parityText.setVisibility(View.VISIBLE);
+		} else {
+			this.labelParity.setVisibility(View.GONE);
+			this.parityText.setVisibility(View.GONE);
+		}
 		this.successText.setText(success ? "Yes!" : "NO...");
+		if(success) {
+			this.reasonText.setVisibility(View.GONE);
+		} else {
+			this.reasonText.setVisibility(View.VISIBLE);
+			this.reasonText.setText(reason);
+		}
 	}
 
 	@Override
@@ -130,6 +148,7 @@ public class ScanActivity extends Activity implements WebActionCallback {
 		if(success) {
 			Toast.makeText(this, "Congrats bro!", Toast.LENGTH_LONG).show();
 		} else {
+			reason = (String) json.get(Constants.REASON_KEY);
 			Toast.makeText(this, "Dude, you suck", Toast.LENGTH_LONG).show();
 		}
 		setupUi();

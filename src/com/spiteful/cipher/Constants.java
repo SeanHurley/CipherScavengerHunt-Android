@@ -12,6 +12,7 @@ public class Constants {
 	public static final String DECODED_KEY = "decoded";
 	public static final String ENCODED_KEY = "encoded";
 	public static final String RESULT_KEY = "result";
+	public static final String REASON_KEY = "reason";
 	public static final String TEAMID_PREF = "team_id";
 	public static final String TEAMPIN_PREF = "team_pin";
 

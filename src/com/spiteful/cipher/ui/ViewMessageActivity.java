@@ -24,6 +24,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.spiteful.cipher.android.R;
 import com.spiteful.cipher.service.GetMessageService;
@@ -47,6 +48,7 @@ public class ViewMessageActivity extends Activity{
 		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
 		int id = Integer.parseInt(prefs.getString(Constants.TEAMID_PREF, "0"));
 		int pin = Integer.parseInt(prefs.getString(Constants.TEAMPIN_PREF, "0"));
+		
 		GetMessageService service = new GetMessageService(messageHandler, id, pin);
 		service.performAction();
 	}
@@ -54,8 +56,14 @@ public class ViewMessageActivity extends Activity{
 	private WebActionCallback messageHandler = new WebActionCallback() {
 		@Override
 		public void onCompleted(JSONObject json) {
+			if(json == null) {
+				Toast.makeText(ViewMessageActivity.this, "Unable to contact server", Toast.LENGTH_LONG).show();
+				return;
+			}
+
 			if(json.containsKey(Constants.ERROR_KEY)) {
-				Log.e(TAG, "Couldn't get message: Error " + json.get(Constants.ERROR_KEY));
+				Log.e(TAG, "Couldn't get message: Error " + json.get(Constants.ERROR_KEY));		
+				Toast.makeText(ViewMessageActivity.this, "Couldn't get QR Code. Error " + json.get(Constants.ERROR_KEY), Toast.LENGTH_LONG).show();
 				return;
 			}
 

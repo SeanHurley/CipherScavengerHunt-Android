@@ -8,7 +8,7 @@ public class GetMessageService extends BaseWebService {
 	private int teamId;
 	private int teamPin;	
 	
-	public GetMessageService(WebActionCallback callback,int teamId, int teamPin) {
+	public GetMessageService(WebActionCallback callback, int teamId, int teamPin) {
 		super(callback);
 		this.teamPin = teamPin;
 		this.teamId = teamId;

@@ -1,4 +1,4 @@
-package com.spiteful.cipher.util;
+package com.spiteful.cipher;
 
 import java.lang.StringBuilder;
 
@@ -6,7 +6,13 @@ import android.util.Base64;
 
 public class Decoder {
 	public static String decodeLevel1(String encoded) {
-		return encoded.replaceAll("\\.", "");
+		StringBuilder builder = new StringBuilder();
+		for(int i=0; i<encoded.length(); i++) {
+			if(i%2 == 0) {
+				builder.append(encoded.charAt(i));
+			}
+		}
+		return builder.toString();
 	}
 
 	public static String decodeLevel2(String encoded) {

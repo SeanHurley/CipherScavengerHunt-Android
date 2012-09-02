@@ -16,11 +16,11 @@ import android.widget.Toast;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 import com.spiteful.cipher.Constants;
+import com.spiteful.cipher.Decoder;
 import com.spiteful.cipher.android.R;
 import com.spiteful.cipher.model.Message;
 import com.spiteful.cipher.service.VerifyService;
 import com.spiteful.cipher.service.WebActionCallback;
-import com.spiteful.cipher.util.Decoder;
 
 public class ScanActivity extends Activity implements WebActionCallback {
 	private static final String tag = ScanActivity.class.toString();
@@ -100,6 +100,7 @@ public class ScanActivity extends Activity implements WebActionCallback {
 
 	private void handleMessage(JSONObject json) {
 		message = new Message();
+		
 		int level = (Integer)json.get(Constants.LEVEL_KEY);
 		int id = (Integer) json.get(Constants.ID_KEY);
 		String data = (String) json.get(Constants.ENCODED_KEY);
@@ -127,8 +128,29 @@ public class ScanActivity extends Activity implements WebActionCallback {
 		default:
 			break;
 		}
+		
 		message.setDecoded(decoded);
+		
+		
+		if(json.containsKey(Constants.TEST_KEY)) {
+			handleTestMessage(json);
+			return;
+		}
+		
 		contactServer(message);
+	}
+	
+	private void handleTestMessage(JSONObject json) {
+		String solution = (String) json.get(Constants.SOLUTION_KEY);
+		success = solution.equals(message.getDecoded());
+			
+		if(success) {
+			Toast.makeText(this, "Congrats bro!", Toast.LENGTH_LONG).show();
+		} else {
+			reason = (String) json.get(Constants.REASON_KEY);
+			Toast.makeText(this, "Dude, you suck", Toast.LENGTH_LONG).show();
+		}
+		setupUi();
 	}
 
 	private void contactServer(Message message) {

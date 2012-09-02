@@ -15,6 +15,8 @@ public class Constants {
 	public static final String REASON_KEY = "reason";
 	public static final String TEAMID_PREF = "team_id";
 	public static final String TEAMPIN_PREF = "team_pin";
+	public static final String TEST_KEY = "test";
+	public static final String SOLUTION_KEY = "solution";
 
 	//public static final String BASE_URL = "http://192.168.1.149:3000/";
 	public static final String BASE_URL = "http://www.spitefulapps.com/";

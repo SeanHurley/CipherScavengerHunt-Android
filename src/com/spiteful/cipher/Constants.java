@@ -16,7 +16,9 @@ public class Constants {
 	public static final String TEAMID_PREF = "team_id";
 	public static final String TEAMPIN_PREF = "team_pin";
 
-	public static final String BASE_URL = "http://192.168.1.149:3000/";
+	//public static final String BASE_URL = "http://192.168.1.149:3000/";
+	public static final String BASE_URL = "http://www.spitefulapps.com/";
+	
 	public static final String VERIFY_PATH = "verify";
 	public static final String GET_MESSAGE_PATH = "getmessage";
 	public static final String CONTENT_TYPE = "application/json; charset=UTF-8";

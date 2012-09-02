@@ -90,6 +90,8 @@ public class ScanActivity extends Activity implements WebActionCallback {
 				handleMessage((JSONObject) object);
 			} else {
 				// TODO Tell the user
+				Toast.makeText(this, "Invalid QR Code", Toast.LENGTH_LONG).show();
+				finish();
 			}
 		} else {
 			finish();
@@ -133,10 +135,10 @@ public class ScanActivity extends Activity implements WebActionCallback {
 		startSpinner();
 
 		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-		int id = Integer.parseInt(prefs.getString(Constants.TEAMID_PREF, "0"));
+		String netid = prefs.getString(Constants.TEAMID_PREF, "0");
 		int pin = Integer.parseInt(prefs.getString(Constants.TEAMPIN_PREF, "0"));
 
-		VerifyService service = new VerifyService(this, message, id, pin);
+		VerifyService service = new VerifyService(this, message, netid, pin);
 		service.performAction();
 	}
 

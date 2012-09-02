@@ -46,10 +46,10 @@ public class ViewMessageActivity extends Activity{
 		messageImage = (ImageView) this.findViewById(R.id.img_message);
 
 		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-		int id = Integer.parseInt(prefs.getString(Constants.TEAMID_PREF, "0"));
+		String netid = prefs.getString(Constants.TEAMID_PREF, "0");
 		int pin = Integer.parseInt(prefs.getString(Constants.TEAMPIN_PREF, "0"));
 		
-		GetMessageService service = new GetMessageService(messageHandler, id, pin);
+		GetMessageService service = new GetMessageService(messageHandler, netid, pin);
 		service.performAction();
 	}
 
@@ -64,6 +64,7 @@ public class ViewMessageActivity extends Activity{
 			if(json.containsKey(Constants.ERROR_KEY)) {
 				Log.e(TAG, "Couldn't get message: Error " + json.get(Constants.ERROR_KEY));		
 				Toast.makeText(ViewMessageActivity.this, "Couldn't get QR Code. Error " + json.get(Constants.ERROR_KEY), Toast.LENGTH_LONG).show();
+				finish();
 				return;
 			}
 

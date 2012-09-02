@@ -5,13 +5,13 @@ import net.minidev.json.JSONObject;
 import com.spiteful.cipher.Constants;
 
 public class GetMessageService extends BaseWebService {
-	private int teamId;
+	private String netid;
 	private int teamPin;	
 	
-	public GetMessageService(WebActionCallback callback, int teamId, int teamPin) {
+	public GetMessageService(WebActionCallback callback, String netid, int teamPin) {
 		super(callback);
 		this.teamPin = teamPin;
-		this.teamId = teamId;
+		this.netid = netid;
 	}
 
 	@Override
@@ -22,7 +22,7 @@ public class GetMessageService extends BaseWebService {
 	@Override
 	public String getBody() {
 		JSONObject json = new JSONObject();
-		json.put(Constants.ID_KEY, teamId);
+		json.put(Constants.ID_KEY, netid);
 		json.put(Constants.PIN_KEY, teamPin);
 		
 		return json.toJSONString();

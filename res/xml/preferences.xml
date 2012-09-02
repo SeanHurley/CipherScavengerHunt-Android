@@ -8,11 +8,10 @@
         
         <EditTextPreference 
             android:key="team_id"
-            android:summary="A number"
-            android:title="The Teams ID" 
-            android:inputType="number"
+            android:summary="Netid"
+            android:title="The Teams Netid" 
             android:defaultValue=""
-            android:dialogMessage="Team ID"    
+            android:dialogMessage="Netid"    
         />
         
         <EditTextPreference 

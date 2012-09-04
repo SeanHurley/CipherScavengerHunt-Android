@@ -18,8 +18,7 @@ public class Constants {
 	public static final String TEST_KEY = "test";
 	public static final String SOLUTION_KEY = "solution";
 
-	public static final String BASE_URL = "http://192.168.1.149:3000/";
-	//public static final String BASE_URL = "http://www.spitefulapps.com/";
+	public static final String BASE_URL = "http://www.spitefulapps.com/";
 	
 	public static final String VERIFY_PATH = "verify";
 	public static final String GET_MESSAGE_PATH = "getmessage";

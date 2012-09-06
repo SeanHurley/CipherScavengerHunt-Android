@@ -1,4 +1,4 @@
-package com.spiteful.cipher;
+package com.eng100.cipher;
 
 public class Constants {
 	public static final String LEVEL_KEY = "level";

@@ -1,4 +1,4 @@
-package com.spiteful.cipher.model;
+package com.eng100.cipher.model;
 
 public class Message {
 	private int id;

@@ -1,8 +1,8 @@
-package com.spiteful.cipher.service;
+package com.eng100.cipher.service;
 
 import net.minidev.json.JSONObject;
 
-import com.spiteful.cipher.Constants;
+import com.eng100.cipher.Constants;
 
 public class GetMessageService extends BaseWebService {
 	private String netid;

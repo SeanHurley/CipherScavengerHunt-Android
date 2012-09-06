@@ -1,4 +1,4 @@
-package com.spiteful.cipher.service;
+package com.eng100.cipher.service;
 
 import net.minidev.json.JSONObject;
 

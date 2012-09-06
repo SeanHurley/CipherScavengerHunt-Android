@@ -1,4 +1,4 @@
-package com.spiteful.cipher.service;
+package com.eng100.cipher.service;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -17,7 +17,7 @@ import org.apache.http.util.EntityUtils;
 import android.os.AsyncTask;
 import android.util.Log;
 
-import com.spiteful.cipher.Constants;
+import com.eng100.cipher.Constants;
 
 public abstract class BaseWebService {
 	private static final String TAG = BaseWebService.class.toString();

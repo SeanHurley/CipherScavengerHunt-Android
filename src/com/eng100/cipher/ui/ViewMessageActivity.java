@@ -1,4 +1,4 @@
-package com.spiteful.cipher.ui;
+package com.eng100.cipher.ui;
 
 import java.io.InputStream;
 import java.net.MalformedURLException;
@@ -26,13 +26,12 @@ import android.util.Log;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.eng100.cipher.Constants;
+import com.eng100.cipher.service.GetMessageService;
+import com.eng100.cipher.service.VerifyService;
+import com.eng100.cipher.service.WebActionCallback;
 import com.spiteful.cipher.android.R;
-import com.spiteful.cipher.service.GetMessageService;
-import com.spiteful.cipher.service.WebActionCallback;
-import com.spiteful.cipher.Constants;
 import com.spiteful.cipher.android.R;
-import com.spiteful.cipher.service.VerifyService;
-import com.spiteful.cipher.service.WebActionCallback;
 
 public class ViewMessageActivity extends Activity{
 	private static final String TAG = ViewMessageActivity.class.toString();

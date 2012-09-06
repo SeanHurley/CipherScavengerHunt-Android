@@ -1,4 +1,5 @@
-package com.spiteful.cipher;
+package com;
+
 
 
 public class Decoder {

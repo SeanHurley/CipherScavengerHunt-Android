@@ -1,9 +1,9 @@
-package com.spiteful.cipher.service;
+package com.eng100.cipher.service;
 
 import net.minidev.json.JSONObject;
 
-import com.spiteful.cipher.Constants;
-import com.spiteful.cipher.model.Message;
+import com.eng100.cipher.Constants;
+import com.eng100.cipher.model.Message;
 
 public class VerifyService extends BaseWebService {
 	private Message message;

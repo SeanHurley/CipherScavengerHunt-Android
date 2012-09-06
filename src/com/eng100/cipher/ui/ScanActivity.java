@@ -1,4 +1,4 @@
-package com.spiteful.cipher.ui;
+package com.eng100.cipher.ui;
 
 import net.minidev.json.JSONObject;
 import net.minidev.json.JSONValue;
@@ -13,14 +13,14 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.Decoder;
+import com.eng100.cipher.Constants;
+import com.eng100.cipher.model.Message;
+import com.eng100.cipher.service.VerifyService;
+import com.eng100.cipher.service.WebActionCallback;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
-import com.spiteful.cipher.Constants;
-import com.spiteful.cipher.Decoder;
 import com.spiteful.cipher.android.R;
-import com.spiteful.cipher.model.Message;
-import com.spiteful.cipher.service.VerifyService;
-import com.spiteful.cipher.service.WebActionCallback;
 
 public class ScanActivity extends Activity implements WebActionCallback {
 	private static final String tag = ScanActivity.class.toString();

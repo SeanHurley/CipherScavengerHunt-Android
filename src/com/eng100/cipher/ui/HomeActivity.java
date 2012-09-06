@@ -1,4 +1,4 @@
-package com.spiteful.cipher.ui;
+package com.eng100.cipher.ui;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -11,8 +11,8 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.eng100.cipher.Constants;
 import com.spiteful.cipher.android.R;
-import com.spiteful.cipher.Constants;
 
 
 public class HomeActivity extends Activity {

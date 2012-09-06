@@ -1,4 +1,4 @@
-package com.spiteful.cipher.ui;
+package com.eng100.cipher.ui;
 
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
